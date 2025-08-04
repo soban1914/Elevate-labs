@@ -1,17 +1,13 @@
 def add(a, b):
     return a + b
-
 def subtract(a, b):
     return a - b
-
 def multiply(a, b):
     return a * b
-
 def divide(a, b):
     if b == 0:
         return "Error: Division by zero is undefined."
     return a / b
-
 def get_input():
     try:
         a = float(input("Enter first number: "))
@@ -20,7 +16,6 @@ def get_input():
     except ValueError:
         print("Invalid input! Please enter numeric values.")
         return get_input()
-
 def main():
     while True:
         print("\nSimple CLI Calculator")
@@ -29,16 +24,12 @@ def main():
         print("3. Multiply")
         print("4. Divide")
         print("5. Exit")
-
         choice = input("Choose operation (1-5): ")
-
         if choice == '5':
             print("Exiting calculator. Goodbye!")
             break
-
         if choice in ('1', '2', '3', '4'):
             a, b = get_input()
-
             if choice == '1':
                 print(f"Result: {add(a, b)}")
             elif choice == '2':
@@ -50,6 +41,5 @@ def main():
                 print(f"Result: {result}")
         else:
             print("Invalid choice. Please choose a valid operation.")
-
 if __name__ == "__main__":
     main()
