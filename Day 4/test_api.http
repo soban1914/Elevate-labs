@@ -1,0 +1,89 @@
+### Health Check
+GET http://localhost:5000/health
+
+###
+
+### Get all users (initially empty)
+GET http://localhost:5000/users
+
+###
+
+### Create a new user
+POST http://localhost:5000/users
+Content-Type: application/json
+
+{
+  "name": "John Doe",
+  "email": "john@example.com",
+  "age": 25
+}
+
+###
+
+### Create another user
+POST http://localhost:5000/users
+Content-Type: application/json
+
+{
+  "name": "Jane Smith",
+  "email": "jane@example.com",
+  "age": 30
+}
+
+###
+
+### Get all users (should show 2 users now)
+GET http://localhost:5000/users
+
+###
+
+### Get specific user by ID
+GET http://localhost:5000/users/1
+
+###
+
+### Update user
+PUT http://localhost:5000/users/1
+Content-Type: application/json
+
+{
+  "name": "John Updated",
+  "email": "johnupdated@example.com",
+  "age": 26
+}
+
+###
+
+### Get updated user
+GET http://localhost:5000/users/1
+
+###
+
+### Try to create user with duplicate email (should fail)
+POST http://localhost:5000/users
+Content-Type: application/json
+
+{
+  "name": "Duplicate User",
+  "email": "john@example.com"
+}
+
+###
+
+### Try to get non-existent user (should return 404)
+GET http://localhost:5000/users/999
+
+###
+
+### Delete user
+DELETE http://localhost:5000/users/1
+
+###
+
+### Verify user was deleted
+GET http://localhost:5000/users/1
+
+###
+
+### Get all users (should show 1 user remaining)
+GET http://localhost:5000/users
